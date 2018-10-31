@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * This class provides a convenient way to test shuffling methods.
  */
@@ -39,9 +41,27 @@ public class Shuffler {
 			System.out.println();
 		}
 		System.out.println();
+		
+		System.out.println("SHUFFLING NAMES");
+		ArrayList<String> names = new ArrayList<String>();
+		names.add("Sophia");
+		names.add("Annamarie");
+		names.add("Angela");
+		names.add("Jeff");
+		names.add("Michael");
+		names.add("Tim");
+		wordShuffle(names);
 	}
 
-
+	public static void wordShuffle (ArrayList<String> names) {
+		for (int x = names.size(); x>0; x--) {
+			int r = (int)(Math.random() * x);
+			String temp = names.get(r);
+			names.set(r, names.get(x));
+			names.set(r, temp);
+			
+		}
+	}
 	/**
 	 * Apply a "perfect shuffle" to the argument.
 	 * The perfect shuffle algorithm splits the deck in half, then interleaves
